@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebApplication4.Models.Forecast2ViewModel>
+<div class="container">
+    <table class="table table-responsive" cellpadding="2" cellspacing="2" border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Operation</th>
+                <th>EquipmentToRig</th>
+                <th>EquipmentFromRig</th>
+                <th>Vessels</th>
+                <th>Personnel</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TheDate.ToString("dd/MM/yyyy")</td>
+                        <td>@item.Operation</td>
+                        <td>@item.EquipmentToRig</td>
+                        <td>@item.EquipmentFromRig</td>
+                        <td>@item.Vessels</td>
+                        <td>@item.Personnel</td>
+                        </tr>
+
+                }
+                    
+                
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("ExportToExcel", "Home")">Export To Excel</a>
+</div>

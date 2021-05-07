@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LookaheadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Forecast2">
+          <Key>
+            <PropertyRef Name="TheDate" />
+          </Key>
+          <Property Name="TheDate" Type="datetime" Nullable="false" />
+          <Property Name="Operation" Type="varchar" MaxLength="8000" />
+          <Property Name="EquipmentToRig" Type="varchar" MaxLength="8000" />
+          <Property Name="EquipmentFromRig" Type="varchar" MaxLength="8000" />
+          <Property Name="Vessels" Type="varchar" MaxLength="8000" />
+          <Property Name="Personnel" Type="int" />
+        </EntityType>
+        <EntityContainer Name="LookaheadModelStoreContainer">
+          <EntitySet Name="Forecast2" EntityType="Self.Forecast2" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LookaheadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Forecast2">
+          <Key>
+            <PropertyRef Name="TheDate" />
+          </Key>
+          <Property Name="TheDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Operation" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="EquipmentToRig" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="EquipmentFromRig" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Vessels" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Personnel" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="LookaheadEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Forecast2" EntityType="Self.Forecast2" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LookaheadModelStoreContainer" CdmEntityContainer="LookaheadEntities">
+          <EntitySetMapping Name="Forecast2">
+            <EntityTypeMapping TypeName="LookaheadModel.Forecast2">
+              <MappingFragment StoreEntitySet="Forecast2">
+                <ScalarProperty Name="TheDate" ColumnName="TheDate" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="EquipmentToRig" ColumnName="EquipmentToRig" />
+                <ScalarProperty Name="EquipmentFromRig" ColumnName="EquipmentFromRig" />
+                <ScalarProperty Name="Vessels" ColumnName="Vessels" />
+                <ScalarProperty Name="Personnel" ColumnName="Personnel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
